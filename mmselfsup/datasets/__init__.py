@@ -11,7 +11,7 @@ from .relative_loc import RelativeLocDataset
 from .rotation_pred import RotationPredDataset
 from .samplers import *  # noqa: F401,F403
 from .single_view import SingleViewDataset
-from .multi_view_cxr import MultiViewDatasetCXR
+from .multi_view_cxr import MultiViewDatasetNIH, MultiViewDatasetCXP, MultiViewDatasetPDC, MultiViewDatasetMIMIC
 from .single_view_cxr import SingleViewDatasetCXR
 from .single_view_allcxr import SingleViewDatasetMIMIC, SingleViewDatasetCXR14, SingleViewDatasetCXP, SingleViewDatasetPDC
 
@@ -21,5 +21,6 @@ __all__ = [
     'build_dataset', 'build_datasource', 'ConcatDataset', 'RepeatDataset',
     'DeepClusterDataset', 'MultiViewDataset', 'SingleViewDataset',
     'RelativeLocDataset', 'RotationPredDataset', 'MultiViewDatasetCXR', 'SingleViewDatasetCXR',
-    'SingleViewDatasetCXR14', 'SingleViewDatasetMIMIC', 'SingleViewDatasetCXP', 'SingleViewDatasetPDC'
+    'SingleViewDatasetCXR14', 'SingleViewDatasetMIMIC', 'SingleViewDatasetCXP', 'SingleViewDatasetPDC',
+    'MultiViewDatasetNIH', 'MultiViewDatasetCXP', 'MultiViewDatasetPDC', 'MultiViewDatasetMIMIC'
 ]

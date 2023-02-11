@@ -17,7 +17,7 @@ class ConcatDataset(_ConcatDataset):
 
     def __init__(self, datasets):
         super(ConcatDataset, self).__init__(datasets)
-        self.CLASSES = datasets[0].CLASSES
+        # self.CLASSES = datasets[0].CLASSES
 
 
 @DATASETS.register_module()
