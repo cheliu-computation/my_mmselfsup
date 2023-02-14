@@ -6,7 +6,7 @@ _base_ = [
 ]
 
 # dataset
-data = dict(samples_per_gpu=64, workers_per_gpu=8)
+data = dict(samples_per_gpu=128, workers_per_gpu=16)
 
 # optimizer
 optimizer = dict(
@@ -29,7 +29,7 @@ lr_config = dict(
     by_epoch=False)
 
 # schedule
-runner = dict(max_epochs=300)
+runner = dict(max_epochs=100)
 
 # clip gradient
 optimizer_config = dict(grad_clip=dict(max_norm=3.0))
@@ -41,7 +41,7 @@ fp16 = dict(loss_scale='dynamic')
 checkpoint_config = dict(interval=1, max_keep_ckpts=2, out_dir='')
 persistent_workers = True
 log_config = dict(
-    interval=100, hooks=[
+    interval=200, hooks=[
         dict(type='TextLoggerHook'),
     ])
 

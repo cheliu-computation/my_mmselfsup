@@ -5,12 +5,12 @@ _base_ = [
     '../_base_/default_runtime.py',
 ]
 
-data = dict(samples_per_gpu=256)
+data = dict(samples_per_gpu=128)
 
 # optimizer
 optimizer = dict(
     type='LARS',
-    lr=1.6,
+    lr=1.2,
     momentum=0.9,
     weight_decay=1e-6,
     paramwise_options={
@@ -39,4 +39,4 @@ lr_config = dict(
 # it will remove the oldest one to keep the number of total ckpts as 3
 checkpoint_config = dict(interval=10, max_keep_ckpts=3)
 
-runner = dict(type='EpochBasedRunner', max_epochs=50)
+runner = dict(type='EpochBasedRunner', max_epochs=100)

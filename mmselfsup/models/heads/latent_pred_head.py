@@ -37,7 +37,8 @@ class LatentPredictHead(BaseModule):
 
         pred_norm = nn.functional.normalize(pred, dim=1)
         target_norm = nn.functional.normalize(target, dim=1)
-        loss = -(pred_norm * target_norm).sum(dim=1).mean()
+        loss = 2 - 2 * (pred_norm * target_norm).sum(dim=1).mean()
+        # loss = -(pred_norm * target_norm).sum(dim=1).mean()
         return dict(loss=loss)
 
 

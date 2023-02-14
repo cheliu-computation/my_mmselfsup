@@ -37,7 +37,7 @@ lr_config = dict(
 fp16 = dict(loss_scale='dynamic')
 
 # schedule
-runner = dict(max_epochs=50)
+runner = dict(max_epochs=100)
 
 # runtime
 checkpoint_config = dict(interval=10, max_keep_ckpts=3, out_dir='')

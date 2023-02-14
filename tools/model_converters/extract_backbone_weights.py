@@ -2,7 +2,7 @@
 import argparse
 
 import torch
-
+# python extract_backbone_weights.py /home/cl522/github_repo/res50_allCXR_log/BYOL/epoch_100.pth /home/cl522/github_repo/res50_allCXR_log/CAE_backbone.pth
 
 def parse_args():
     parser = argparse.ArgumentParser(

@@ -52,7 +52,7 @@ class SingleViewDatasetMIMIC(BaseDataset):
         return NotImplemented
 
 @DATASETS.register_module()
-class SingleViewDatasetCXR14(BaseDataset):
+class SingleViewDatasetNIH(BaseDataset):
     """The dataset outputs one view of an image, containing some other
     information such as label, idx, etc.
 
@@ -65,7 +65,7 @@ class SingleViewDatasetCXR14(BaseDataset):
     """
 
     def __init__(self, data_source, pipeline, prefetch=False):
-        super(SingleViewDatasetCXR14, self).__init__(data_source, pipeline,
+        super(SingleViewDatasetNIH, self).__init__(data_source, pipeline,
                                                 prefetch)
 
         self.data_source = np.load('/raid/cl522/XSCAN/all_data/CXR14.npy', 'r')
