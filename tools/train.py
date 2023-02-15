@@ -8,6 +8,7 @@ import warnings
 
 import mmcv
 import torch
+import torchvision as tv
 import torch.distributed as dist
 from mmcv import Config, DictAction
 from mmcv.runner import get_dist_info, init_dist
@@ -178,6 +179,17 @@ def main():
 
     model = build_algorithm(cfg.model)
     model.init_weights()
+
+    class ImageNet_Pre(torch.nn.Module):
+        def __init__(self):
+            super(ImageNet_Pre, self).__init__()
+            self.backbone = tv.models.resnet50(pretrained=True)
+            self.backbone.fc = torch.nn.Identity()
+        def forward(self, x):
+            return self.backbone(x)
+
+    img_weight = ImageNet_Pre()
+    model.backbone.load_state_dict(img_weight.backbone.state_dict())
 
     datasets = [build_dataset(cfg.data.train)]
     assert len(cfg.workflow) == 1, 'Validation is called by hook.'
